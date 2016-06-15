@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="hahnzhu" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<title>Demo</title>
+	<link rel="stylesheet" href="/stylesheets/parallax.css">
+	<link rel="stylesheet" href="/stylesheets/parallax-animation.css">
+	<style>
+	/* custom */
+	section[data-id="1"] {
+		background-color: #3498db;
+	}
+	section[data-id="2"] {
+		background-color: #40d47e;
+	}
+	section[data-id="3"] {
+		background-color: #ff8c81;
+	}
+	section[data-id="4"] {
+		background-color: #3498db;
+	}
+	.box1 {
+		width: 100px;
+		height: 200px;
+		background-color: #ecf0f1;
+		position: absolute;
+		left: 160px; top: 126px;
+	}
+	.box2 {
+		width: 200px;
+		height: 100px;
+		background-color: #8e44ad;
+		position: absolute;
+		left: 60px; top: 226px;
+	}
+	.box3 {
+		width: 100px;
+		height: 100px;
+		background-color: #34495e;
+		position: absolute;
+		left: 160px; top: 226px;
+	}
+	.box4 {
+		width: 50px;
+		height: 50px;
+		background-color: #e74c3c;
+		position: absolute;
+		left: 185px; top: 250px;
+	}
+	.c_loading{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 22;
+		top: 0;
+		left: 0;
+		overflow:hidden;
+	    background-color:#fff6f4;
+	}
+	.c_load_center{
+		width: 164px;
+		height: 240px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate3d(-50%,-50%,0);
+		transform: translate3d(-50%,-50%,0);
+	}
+	.c_loading_man{
+		background-image: url('/images/test-loading.png');
+		background-size: 270px 90px;
+		position: absolute;
+		width: 90px; 
+		height: 90px;
+		top: 3px;
+		left: 41%;
+		margin-left: -35px;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		-webkit-animation-timing-function: steps(3,start);
+		animation-timing-function: steps(3,start);
+		-webkit-animation-duration: .2s;
+		animation-duration: .2s;
+		-webkit-animation-name: m1fly;
+		animation-name: m1fly;
+		-webkit-animation-delay: .5s;
+		animation-delay: .5s;
+		animation-iteration-count: infinite;
+		-webkit-animation-iteration-count: infinite;
+		animation-direction: alternate;
+		-webkit-animation-direction: alternate;
+	}
+	@-webkit-keyframes m1fly {
+	    0% {
+	        background-position: 0 0
+	    }
+
+	    100% {
+	        background-position: 270px 0
+	    }
+	}
+
+	@keyframes m1fly {
+	    0% {
+	        background-position: 0 0
+	    }
+
+	    100% {
+	        background-position: 270px 0
+	    }
+	}
+	.c_loaded_star{
+		width: 160px;
+		height: 42px;
+		/*border-radius: 24px;*/
+		/*border: 1px solid #d5eefe;*/
+		margin: 110px auto 0 auto;
+		display: block;
+		-webkit-animation-name: rubberBand;
+		animation-name: rubberBand;
+		-webkit-animation-duration: .6s;
+		animation-duration: .6s;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+		-webkit-animation-fill-mode: forwards;
+		animation-fill-mode: forwards;
+		-webkit-animation-iteration-count: 1;
+		animation-iteration-count: 1;
+		-webkit-transform-origin: 50% 50%;
+		-ms-transform-origin: 50% 50%;
+		transform-origin: 50% 50%；
+		line-height: 42px;
+		text-align: center;
+		font-size: 20px;
+		color: #f69eaf;
+	}
+	@-webkit-keyframes rubberBand {
+	    0% {
+	        -webkit-transform: scale3d(1,1,1);
+	        transform: scale3d(1,1,1)
+	    }
+
+	    30% {
+	        -webkit-transform: scale3d(1.25,.75,1);
+	        transform: scale3d(1.25,.75,1)
+	    }
+
+	    40% {
+	        -webkit-transform: scale3d(0.75,1.25,1);
+	        transform: scale3d(0.75,1.25,1)
+	    }
+
+	    50% {
+	        -webkit-transform: scale3d(1.15,.85,1);
+	        transform: scale3d(1.15,.85,1)
+	    }
+
+	    65% {
+	        -webkit-transform: scale3d(.95,1.05,1);
+	        transform: scale3d(.95,1.05,1)
+	    }
+
+	    75% {
+	        -webkit-transform: scale3d(1.05,.95,1);
+	        transform: scale3d(1.05,.95,1)
+	    }
+
+	    100% {
+	        -webkit-transform: scale3d(1,1,1);
+	        transform: scale3d(1,1,1)
+	    }
+	}
+
+	@keyframes rubberBand {
+	    0% {
+	        -webkit-transform: scale3d(1,1,1);
+	        transform: scale3d(1,1,1)
+	    }
+
+	    30% {
+	        -webkit-transform: scale3d(1.25,.75,1);
+	        transform: scale3d(1.25,.75,1)
+	    }
+
+	    40% {
+	        -webkit-transform: scale3d(0.75,1.25,1);
+	        transform: scale3d(0.75,1.25,1)
+	    }
+
+	    50% {
+	        -webkit-transform: scale3d(1.15,.85,1);
+	        transform: scale3d(1.15,.85,1)
+	    }
+
+	    65% {
+	        -webkit-transform: scale3d(.95,1.05,1);
+	        transform: scale3d(.95,1.05,1)
+	    }
+
+	    75% {
+	        -webkit-transform: scale3d(1.05,.95,1);
+	        transform: scale3d(1.05,.95,1)
+	    }
+
+	    100% {
+	        -webkit-transform: scale3d(1,1,1);
+	        transform: scale3d(1,1,1)
+	    }
+	}
+	.c_select_sex_wrap{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 20;
+		top: 0;
+		left: 0;
+		overflow:hidden;
+	    background-color: #fff;
+	}
+	.c_select_content{
+		width: 250%;
+		height: 100%;
+		background-image: url('/images/back.jpg');
+		background-size:cover;
+		position: absolute;
+		left: -250%;
+		top: 0;
+		animation-name:showbg;
+		animation-duration: 6s;
+		animation-delay: 0.1s;
+		animation-fill-mode: forwards;
+		animation-iteration-count: 1;
+	}
+	@keyframes showbg{
+		form {
+			left:-250%;
+		}
+		to {
+			left:0;
+		}
+	}
+	.c_select_item{
+		width: 10%;
+		height: 50px;
+		text-align: center;
+		line-height: 50px;
+		font: 26px;
+		color: #fff;
+		background: rgb(179,209,193);
+		border-radius:8px;
+		margin: 50px auto;
+		position: absolute;
+	}
+	.c_boy{
+		top:30px;
+	}
+	.c_girl{
+		top: 100px;
+	}
+	.landscape-wrap {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    width: 100%;
+	    height: 100%;
+	    background-color: #152544;
+	    z-index: 10000
+	}
+	.landscape .tips-arrow {
+	    background-image: url('images/animate.png');
+	    background-position: -429px -74px;
+	    width: 60px;
+	    height: 31px;
+	    margin: 0 auto
+	}
+
+	.landscape .tips-phone {
+	    background-image: url('images/animate.png');
+	    background-position: -395px 0;
+	    width: 36px;
+	    height: 73px;
+	    margin: 0 auto;
+	    -webkit-animation: landscape .6s 0s ease-in-out infinite alternate;
+	    -animation: landscape .6s 0s ease-in-out infinite alternate
+	}
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (min-resolution: 1.25dppx) {
+	  			.landscape .tips-arrow {
+			       background-image: url('images/animate.png');
+			       background-size: 922px 135px;
+			       background-position: -440px -64px
+			   }
+
+			   .landscape .tips-phone {
+			       background-image: url('images/animate.png');
+			       background-size: 922px 135px;
+			       background-position: -395px 0
+			   }
+
+			   .arrow {
+			       background-image: url('images/animate.png');
+			       background-size: 922px 135px;
+			       background-position: 0 -120px
+			   }
+
+	  		}
+	@-webkit-keyframes landscape {
+	    0% {
+	        -webkit-transform: rotate(0);
+	        transform: rotate(0)
+	    }
+
+	    100% {
+	        -webkit-transform: rotate(90deg);
+	        transform: rotate(90deg)
+	    }
+	}
+
+	@keyframes landscape {
+	    0% {
+	        -webkit-transform: rotate(0);
+	        transform: rotate(0)
+	    }
+
+	    100% {
+	        -webkit-transform: rotate(90deg);
+	        transform: rotate(90deg)
+	    }
+	}
+	.hide{
+		display: none;
+	}
+	</style>
+</head>
+<body>
+<div class="c_loading" id="c_loading">
+	<div class="c_load_center">
+		<div class="c_loading_man"></div>
+		<a href="javascript:void(0)" class="c_loaded_star" id="c_start">Loading ...</a>
+	</div>
+</div>
+<div class="c_select_sex_wrap" id="c_select_sex_wrap">
+	
+	<div class="c_select_content">
+		<div class="c_boy c_select_item">boy</div>
+		<div class="c_girl c_select_item">girl</div>
+	</div>
+</div>
+<div class="landscape-wrap hide">
+    <div class="landscape">
+        <div class="tips-arrow"></div>
+        <div class="tips-phone"></div>
+    </div>
+</div>
+<div class="wrapper">
+
+	<div class="boy_pages pages">
+
+		<!-- 第一屏 -->
+		<section class="page">
+			
+			<h2>i am boy</h2>
+			<div class="box1" data-animation="followSlide" data-duration="1000"></div>
+			<div class="box2" data-animation="followSlide" data-delay="200" data-duration="1000"></div>
+			<div class="box3" data-animation="followSlide" data-delay="400" data-duration="1000"></div>
+			<div class="box4" data-animation="followSlide" data-delay="600" data-duration="1000"></div>
+
+		</section>
+
+        <!-- 第二屏 -->
+		<section class="page">
+			<h2></h2>
+			<div class="box1" data-animation="followSlide" data-duration="1000"></div>
+			<div class="box2" data-animation="followSlide" data-delay="200" data-duration="1000"></div>
+			<div class="box3" data-animation="followSlide" data-delay="400" data-duration="1000"></div>
+			<div class="box4" data-animation="followSlide" data-delay="600" data-duration="1000"></div>
+		</section>
+
+        <!-- 第三屏 -->
+		<section class="page">
+			<div class="box1" data-animation="fadeInToBottom"></div>
+			<div class="box2" data-animation="fadeInToTop" data-delay="200"></div>
+			<div class="box3" data-animation="fadeInToLeft" data-delay="400"></div>
+			<div class="box4" data-animation="fadeInToRight" data-delay="600"></div>
+		</section>
+
+		<!-- 第四屏 -->
+		<section class="page">
+			<div class="box1" data-animation="fadeIn"></div>
+			<div class="box2" data-animation="fadeOut" data-delay="800"></div>
+		</section>
+
+	</div>
+	<div class="girl_pages pages">
+
+		<!-- 第一屏 -->
+		<section class="page">
+			
+			<h2>i am girl</h2>
+			<div class="box1" data-animation="followSlide" data-duration="1000"></div>
+			<div class="box2" data-animation="followSlide" data-delay="200" data-duration="1000"></div>
+			<div class="box3" data-animation="followSlide" data-delay="400" data-duration="1000"></div>
+			<div class="box4" data-animation="followSlide" data-delay="600" data-duration="1000"></div>
+
+		</section>
+
+        <!-- 第二屏 -->
+		<section class="page">
+			<h2></h2>
+			<div class="box1" data-animation="followSlide" data-duration="1000"></div>
+			<div class="box2" data-animation="followSlide" data-delay="200" data-duration="1000"></div>
+			<div class="box3" data-animation="followSlide" data-delay="400" data-duration="1000"></div>
+			<div class="box4" data-animation="followSlide" data-delay="600" data-duration="1000"></div>
+		</section>
+
+        <!-- 第三屏 -->
+		<section class="page">
+			<div class="box1" data-animation="fadeInToBottom"></div>
+			<div class="box2" data-animation="fadeInToTop" data-delay="200"></div>
+			<div class="box3" data-animation="fadeInToLeft" data-delay="400"></div>
+			<div class="box4" data-animation="fadeInToRight" data-delay="600"></div>
+		</section>
+
+		<!-- 第四屏 -->
+		<section class="page">
+			<div class="box1" data-animation="fadeIn"></div>
+			<div class="box2" data-animation="fadeOut" data-delay="800"></div>
+		</section>
+
+	</div>
+</div>
+<script src="/javascripts/zepto.min.js"></script>
+<script src="/javascripts/slide.js"></script>
+<script src="/javascripts/customer.js"></script>
+</body>
+</html>

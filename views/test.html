@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Tencent-TGideas">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>自动翻屏</title>
+
+<style>
+	/* reset */
+	*{margin:0; padding:0;border:0;}
+	img{border:0;vertical-align:middle;}
+	ul,ol,dl{list-style:none;}
+	html, body{height: 100%;}
+	body {font-size:12px; font-family:arial, "Microsoft YaHei", simsun; line-height:20px;}
+</style>
+</head>
+
+<body>
+
+	<div class="slide">
+		<ul class="content">
+			<li >
+				<a href="javascript:;" class="arrow-area J_downArrow">
+	                <i class="arrow"></i>
+	            </a>
+			</li>
+			<li>
+				<a href="javascript:;" class="arrow-area J_downArrow">
+	                <i class="arrow"></i>
+	            </a>
+			</li>
+			<li>
+				3
+				<a href="javascript:;" class="arrow-area J_downArrow">
+	                <i class="arrow"></i>
+	            </a>
+			</li>
+			<li>
+				4
+				<a href="javascript:;" class="arrow-area J_downArrow">
+	                <i class="arrow"></i>
+	            </a>
+			</li>
+		 </ul>
+	</div>
+	
+	<div class="landscape-wrap hide">
+	    <div class="landscape">
+	        <div class="tips-arrow"></div>
+	        <div class="tips-phone"></div>
+	    </div>
+	</div>
+	<style>
+		.slide {position:relative; width:100%; height:100%;overflow: hidden;}
+		.slide .content{width: 100%;height: 100%;margin: 0 auto;}
+		.slide .content li{width: 100%;height:100%;overflow: hidden;-webkit-background-size: cover;background-size: cover;line-height: 400px;text-align: center;color: #fff;font-size:100px;}
+		.slide .content li:nth-child(1){background-color: #ff8c81;}
+		.slide .content li:nth-child(2){background-color: #00c7fc;}
+		.slide .content li:nth-child(3){background-color: #77bb3f;}
+		.slide .content li:nth-child(4){background-color: #9b59b6;}
+
+		.landscape-wrap {
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    width: 100%;
+		    height: 100%;
+		    background-color: #152544;
+		    z-index: 10000
+		}
+		.landscape .tips-arrow {
+		    background-image: url('images/animate.png');
+		    background-position: -429px -74px;
+		    width: 60px;
+		    height: 31px;
+		    margin: 0 auto
+		}
+
+		.landscape .tips-phone {
+		    background-image: url('images/animate.png');
+		    background-position: -395px 0;
+		    width: 36px;
+		    height: 73px;
+		    margin: 0 auto;
+		    -webkit-animation: landscape .6s 0s ease-in-out infinite alternate;
+		    -animation: landscape .6s 0s ease-in-out infinite alternate
+		}
+		@-webkit-keyframes landscape {
+		    0% {
+		        -webkit-transform: rotate(0);
+		        transform: rotate(0)
+		    }
+
+		    100% {
+		        -webkit-transform: rotate(90deg);
+		        transform: rotate(90deg)
+		    }
+		}
+
+		@keyframes landscape {
+		    0% {
+		        -webkit-transform: rotate(0);
+		        transform: rotate(0)
+		    }
+
+		    100% {
+		        -webkit-transform: rotate(90deg);
+		        transform: rotate(90deg)
+		    }
+		}
+		.arrow-area{
+			position: absolute;
+			/*right: 10px;*/
+			bottom: 10px;
+			width: 44px;
+			height: 44px;
+		}
+		.arrow{
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+		}
+		.arrow {
+		    background-image: url('images/animate.png');
+		    background-position: 0 -120px;
+		    width: 20px;
+		    height: 11px;
+		    z-index: 9999;
+		    -webkit-tap-highlight-color: rgba(255,255,255,0);
+		    animation: fadeInUp 1.5s .2s ease infinite;
+		    -webkit-animation: fadeInUp 1.5s .2s infinite
+		}
+		@-webkit-keyframes fadeInUp {
+		    0% {
+		        opacity: 0;
+		        -webkit-transform: translate3d(0,-20px,0);
+		        transform: translate3d(0,-20px,0)
+		    }
+
+		    100% {
+		        opacity: 1;
+		        -webkit-transform: translate3d(0,0px,0);
+		        transform: translate3d(0,0px,0)
+		    }
+		}
+
+		@keyframes fadeInUp {
+		    0% {
+		        opacity: 0;
+		        -webkit-transform: translate3d(0,-20px,0);
+		        transform: translate3d(0,-20px,0)
+		    }
+
+		    100% {
+		        opacity: 1;
+		        -webkit-transform: translate3d(0,0px,0);
+		        transform: translate3d(0,0px,0)
+		    }
+		}
+		@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (min-resolution: 1.25dppx) {
+  			.landscape .tips-arrow {
+		       background-image: url('images/animate.png');
+		       background-size: 922px 135px;
+		       background-position: -440px -64px
+		   }
+
+		   .landscape .tips-phone {
+		       background-image: url('images/animate.png');
+		       background-size: 922px 135px;
+		       background-position: -395px 0
+		   }
+
+		   .arrow {
+		       background-image: url('images/animate.png');
+		       background-size: 922px 135px;
+		       background-position: 0 -120px
+		   }
+  		}
+  		.hide {
+  		    display: none!important;
+  		}
+	</style>
+	<script src="/javascripts/zepto.min.js"></script>
+	<script src="/javascripts/slide.v2.0.js"></script>
+	<script>
+		$(function(){
+			window.pageSlide = new mo.Slide({
+				target: $('.slide li'),
+				touchMove:false
+			});
+			$('body').on('swipeUp', function() {
+				pageSlide.next();
+			})
+			.on('swipeDown', function() {
+				pageSlide.prev();
+			})
+			.on('touchmove', function() { 
+				event.preventDefault();
+			})
+
+
+			  // 这个是横屏的处理
+			 
+		});
+				  window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+						if("-90" == window.orientation || "90" == window.orientation ){
+			            	$(".landscape-wrap").removeClass("hide") 
+			            }else{
+		            		$(".landscape-wrap").addClass("hide");
+			            }
+				    }, false);
+	</script>
+</body>
+</html>

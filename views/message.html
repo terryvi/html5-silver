@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="hahnzhu" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<title>Demo</title>
+	<link rel="stylesheet" href="/stylesheets/parallax.css">
+	<link rel="stylesheet" href="/stylesheets/parallax-animation.css">
+	<style>
+	.pages{
+		background: rgb(179,209,193);
+	}
+
+	.c_head_img{
+		width: 40px;
+		height: 40px;
+		margin: 0 14px 0 10px;
+	}
+
+	.right{
+		float: right;
+	}
+	.left{
+		float:left;
+	}
+	.c_dialogue_wrap{
+		background: #fff;
+		width:200px ;
+		overflow: hidden;
+		line-height: 20px;
+		padding: 10px;
+		border-radius: 7px;
+		position: relative;
+	}
+	.c_message{
+		margin: 20px 0;
+		overflow: hidden;
+	}
+
+	</style>
+</head>
+<body>
+<!-- // 模拟背景动画 -->
+<div class="wrapper">
+	<div class="pages">
+	 	<div class="c_message c_message_right" data-animation="slideToLeft" data-delay="300" data-timing-function="linear">
+	 		<div class="c_head_img right">
+	 			<img src="/images/head_left.png" width="100%"	alt="222">
+	 		</div>
+	 		<div class="c_dialogue_wrap right">
+	 			come onnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+	 		</div>
+	 	</div>
+	 	<div class="c_message c_message_left" data-animation="slideToRight" data-delay="900" data-timing-function="linear">
+	 		<div class="c_head_img left">
+	 			<img src="/images/head_right.png" width="100%" alt="333">
+	 		</div>
+	 		<div class="c_dialogue_wrap left">
+	 			ooooooooooooooooooooooooooooooooooooooooooooooooooxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	 		</div>
+	 	</div>
+	 	<div class="c_message c_message_right" data-animation="slideToLeft" data-delay="1500" data-timing-function="linear">
+	 		<div class="c_head_img right">
+	 			<img src="/images/head_left.png" width="100%"	alt="222">
+	 		</div>
+	 		<div class="c_dialogue_wrap right">
+	 			come onnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+	 		</div>
+	 	</div>
+	 	<div class="c_message c_message_left" data-animation="slideToRight" data-delay="2100" data-timing-function="linear">
+	 		<div class="c_head_img left">
+	 			<img src="/images/head_right.png" width="100%" alt="333">
+	 		</div>
+	 		<div class="c_dialogue_wrap left">
+	 			ooooooooooooooooooooooooooooooooooooooooooooooooooxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	 		</div>
+	 	</div>
+	 	<div class="c_message c_message_right"  data-animation="slideToLeft" data-delay="3000" data-timing-function="linear">
+	 		<div class="c_head_img right">
+	 			<img src="/images/head_left.png" width="100%"	alt="222">
+	 		</div>
+	 		<div class="c_dialogue_wrap right">
+	 			come onnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+	 		</div>
+	 	</div>
+	</div>
+</div>
+<script src="/javascripts/zepto.min.js"></script>
+<script>
+	$('.pages [data-animation]').each(function(index, element){
+	    // 统一加进去类而已，以及要的时间，根据animation.css 来搞的
+
+	    var $element    = $(element),
+	        $animation  = $element.attr('data-animation'),
+	        $duration   = $element.attr('data-duration') || 500,
+	        $timfunc    = $element.attr('data-timing-function') || 'ease',
+	        $delay      = $element.attr('data-delay') ?  $element.attr('data-delay') : 0;
+	    var direction = 'vertical';
+	    if ($animation === 'followSlide') {
+	        
+	        if (direction === 'horizontal' ) {
+	            $animation = 'followSlideToLeft';
+	        }
+	        else if (direction === 'horizontal') {
+	            $animation = 'followSlideToRight';
+	        }
+	        else if (direction === 'vertical') {
+	            $animation = 'followSlideToTop';
+	        }
+	        else if (direction === 'vertical') {
+	            $animation = 'followSlideToBottom';
+	        }
+	        
+	    }
+	    $element.css({
+	        //'-webkit-animation': $animation +' '+ $duration + 'ms ' + $timfunc + ' '+ $delay + 'ms both',
+	        'display': 'block',
+	        // 为了兼容不支持贝塞尔曲线的动画，需要拆开写
+	        // 严格模式下不允许出现两个同名属性，所以不得已去掉 'use strict'
+	        '-webkit-animation-name': $animation,
+	        '-webkit-animation-duration': $duration + 'ms',
+	        '-webkit-animation-timing-function': 'ease',
+	        '-webkit-animation-timing-function': $timfunc,
+	        '-webkit-animation-delay': $delay + 'ms',
+	        '-webkit-animation-fill-mode': 'both'
+	    })
+	});
+</script>
+</body>
+</html>

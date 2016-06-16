@@ -1,7 +1,5 @@
 /**
- * @author  : Terry
- * @version : 0.1
- * @date    : 2016-05-30
+ *  修改 parallax.js 删减一些非主要的东西。
  */
 
  if( typeof Zepto === 'undefined')  { throw new Error('slide.js\'s script requires Zepto')}
